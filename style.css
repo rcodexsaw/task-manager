@@ -1,0 +1,292 @@
+/* --- Midnight Blue Premium Theme --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html[data-theme="dark"] {
+    --bg-color: #0b111e;
+    --card-bg: #131c2e;
+    --input-bg: #090d16;
+    --border-color: #1e293b;
+    --text-main: #ffffff;
+    --text-muted: #64748b;
+    --primary-blue: #3b82f6;
+    --count-bg: #1e293b;
+}
+
+html[data-theme="light"] {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --input-bg: #f1f5f9;
+    --border-color: #e2e8f0;
+    --text-main: #0f172a;
+    --text-muted: #94a3b8;
+    --primary-blue: #2563eb;
+    --count-bg: #e2e8f0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    padding: 3rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.app-header h1 {
+    font-size: 2.8rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.app-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+}
+
+#theme-toggle-btn {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Cards Wrapper */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem;
+    border-radius: 8px;
+}
+
+/* Grids for inputs */
+.form-grid,
+.controls-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr auto;
+    gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+
+    .form-grid,
+    .controls-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+input,
+select,
+button {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary-blue);
+}
+
+/* Primary Accent Buttons */
+#add-task-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+}
+
+#clear-all-btn {
+    background-color: #ef444420;
+    color: #ef4444;
+    border: 1px solid #ef444440;
+    cursor: pointer;
+}
+
+#clear-all-btn:hover {
+    background-color: #ef4444;
+    color: white;
+}
+
+/* Task Columns */
+.task-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .task-board {
+        grid-template-columns: 1fr;
+    }
+}
+
+.task-column {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.column-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.task-count {
+    background-color: var(--count-bg);
+    color: var(--text-main);
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 100px;
+}
+
+/* --- The Task Card (Exact Match to Your Image) --- */
+.task-card {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.task-title-text {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.task-sub-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Custom Category Badge */
+.badge {
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.badge.work {
+    background-color: #ef4444;
+}
+
+/* Red badge like your 'HIGH' */
+.badge.personal {
+    background-color: #3b82f6;
+}
+
+/* Blue badge */
+.badge.shopping {
+    background-color: #10b981;
+}
+
+/* Green badge */
+
+.date-string {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Actions Buttons Styling */
+.task-actions button {
+    padding: 0.35rem 0.6rem;
+    margin-left: 0.25rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.complete-btn {
+    background-color: #10b98115;
+    color: #10b981;
+    border-color: #10b98130;
+}
+
+.complete-btn:hover {
+    background-color: #10b981;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #ef444415;
+    color: #ef4444;
+    border-color: #ef444430;
+}
+
+.delete-btn:hover {
+    background-color: #ef4444;
+    color: white;
+}
+
+/* Completed State UI changes */
+[data-status="completed"] .task-title-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+[data-status="completed"] .complete-btn {
+    display: none;
+}
+
